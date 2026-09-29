@@ -1644,9 +1644,13 @@ h1,h2,h3{
   .step.is-active .step__num,
   .step.is-active .step__title{transform:none}
 
-  /* o brilho do titulo para, e o texto fica na cor solida do gradiente */
+  /* o brilho do titulo continua, so mais lento: e uma mudanca de cor no
+     proprio texto, nao um movimento na tela */
   .hero__title,
-  .hero__accent{animation:none}
+  .hero__accent{
+    animation-duration:14s !important;
+    animation-iteration-count:infinite !important;
+  }
 
   /* a faixa de atuacao continua rolando, apenas um pouco mais devagar */
   .ticker__track{
