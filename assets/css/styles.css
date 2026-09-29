@@ -567,6 +567,62 @@ h1,h2,h3{
 }
 .hero__meta-label{font-size:.86rem;color:var(--muted)}
 
+/* ------------------------------------- faixa de atuação (rolagem infinita) */
+.ticker{
+  position:relative;
+  z-index:3;
+  background:var(--ink);
+  color:var(--white);
+  border-block:1px solid rgba(255,255,255,.08);
+  padding-block:clamp(.9rem,1.9vh,1.2rem);
+  overflow:hidden;
+}
+/* esmaece as extremidades para o texto entrar e sair suavemente */
+.ticker::before,
+.ticker::after{
+  content:"";position:absolute;top:0;bottom:0;z-index:2;
+  width:clamp(48px,9vw,150px);
+  pointer-events:none;
+}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--ink) 14%,rgba(37,37,37,0))}
+.ticker::after{right:0;background:linear-gradient(270deg,var(--ink) 14%,rgba(37,37,37,0))}
+
+.ticker__track{
+  display:flex;
+  width:max-content;
+  animation:tickerScroll 46s linear infinite;
+  will-change:transform;
+}
+.ticker__group{display:flex;align-items:center}
+.ticker__item{
+  display:inline-flex;
+  align-items:center;
+  white-space:nowrap;
+  padding-left:clamp(1.4rem,2.4vw,2.2rem);
+  font-family:var(--f-display);
+  font-size:clamp(1rem,1.5vw,1.22rem);
+  font-weight:400;
+  letter-spacing:.16em;
+  line-height:1;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.8);
+  transition:color .45s var(--ease);
+}
+.ticker__item::before{
+  content:"";flex:none;
+  width:5px;height:5px;
+  margin-right:clamp(1.4rem,2.4vw,2.2rem);
+  background:var(--accent-soft);
+  transform:rotate(45deg);
+}
+.ticker:hover .ticker__item{color:var(--white)}
+.ticker:hover .ticker__track{animation-play-state:paused}
+
+@keyframes tickerScroll{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(-50%,0,0)}
+}
+
 /* ------------------------------------------------------------ 07 placeholders
    Área reservada para fotografia. Insira a imagem assim:
 
@@ -1416,6 +1472,10 @@ h1,h2,h3{
     --section-y:clamp(3.25rem,9vh,4.75rem);
     --header-h:64px;
   }
+  /* em telas pequenas os reveals laterais viram subida, para nada entrar
+     de fora da tela */
+  .js [data-reveal="left"],
+  .js [data-reveal="right"]{transform:translateY(22px)}
   .hero{padding-top:calc(var(--header-h) + 1.85rem)}
   .hero__title{letter-spacing:-.032em}
   .hero__actions{flex-direction:column;align-items:stretch;gap:.65rem}
@@ -1502,6 +1562,13 @@ h1,h2,h3{
   }
   .step.is-active .step__num,
   .step.is-active .step__title{transform:none}
+
+  /* a faixa de atuacao continua rolando, apenas bem mais devagar */
+  .ticker__track{
+    animation-duration:90s !important;
+    animation-iteration-count:infinite !important;
+  }
+  .ticker:hover .ticker__track{animation-play-state:running}
 }
 
 /* sem JavaScript: mostra o percurso completo e legivel */
