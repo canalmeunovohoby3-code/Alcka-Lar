@@ -38,7 +38,7 @@
   var header = $('#siteHeader');
   function headerState() {
     if (!header) { return; }
-    header.classList.toggle('is-scrolled', window.scrollY > 24);
+    header.classList.toggle('is-scrolled', window.scrollY > 44);
   }
 
   /* ------------------------------------------------ 03 · progresso de leitura */

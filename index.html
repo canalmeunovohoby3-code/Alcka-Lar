@@ -33,7 +33,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Inter:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="assets/css/styles.css">
 
 <script type="application/ld+json">
@@ -201,15 +201,15 @@
         </div>
 
         <dl class="about__data">
-          <div class="about__row" data-reveal data-delay="1">
+          <div class="about__row" data-reveal="right" data-delay="1">
             <dt>Segmento</dt>
             <dd>Construção Civil</dd>
           </div>
-          <div class="about__row" data-reveal data-delay="2">
+          <div class="about__row" data-reveal="right" data-delay="2">
             <dt>Especialidade</dt>
             <dd>Casas e apartamentos</dd>
           </div>
-          <div class="about__row" data-reveal data-delay="3">
+          <div class="about__row" data-reveal="right" data-delay="3">
             <dt>Atuação</dt>
             <dd>Ibitinga &ndash; SP</dd>
           </div>
@@ -261,7 +261,7 @@
         </article>
       </div>
 
-      <div class="services__closing" data-reveal>
+      <div class="services__closing" data-reveal="left">
         <p class="services__closing-text">
           Casas e apartamentos têm escalas diferentes, mas partem do mesmo princípio: entender o que o espaço precisa resolver e construir com atenção ao resultado.
         </p>
@@ -283,7 +283,7 @@
 
       <div class="pillars">
         <article class="pillar">
-          <span class="pillar__mark" data-reveal aria-hidden="true">I</span>
+          <span class="pillar__mark" data-reveal="scale" aria-hidden="true">I</span>
           <h3 class="pillar__title" data-reveal="mask" data-delay="1">Qualidade</h3>
           <span class="rule" data-reveal="line" data-delay="2" aria-hidden="true"></span>
           <p class="pillar__text" data-reveal data-delay="2">
@@ -292,7 +292,7 @@
         </article>
 
         <article class="pillar pillar--right">
-          <span class="pillar__mark" data-reveal aria-hidden="true">II</span>
+          <span class="pillar__mark" data-reveal="scale" aria-hidden="true">II</span>
           <h3 class="pillar__title" data-reveal="mask" data-delay="2">Conforto</h3>
           <span class="rule" data-reveal="line" data-delay="3" aria-hidden="true"></span>
           <p class="pillar__text" data-reveal data-delay="3">
@@ -318,24 +318,24 @@
       </div>
 
       <ol class="highlight__steps">
-        <li class="hstep" data-reveal>
+        <li class="hstep" data-reveal="scale">
           <span class="hstep__num">01</span>
           <span class="hstep__title">Planejar</span>
           <span class="hstep__text">Entender o que se quer construir e organizar cada definição antes de começar.</span>
         </li>
-        <li class="hstep" data-reveal data-delay="1">
+        <li class="hstep" data-reveal="scale" data-delay="1">
           <span class="hstep__num">02</span>
           <span class="hstep__title">Construir</span>
           <span class="hstep__text">Executar as etapas com atenção ao que foi planejado e ao detalhe de cada fase.</span>
         </li>
-        <li class="hstep" data-reveal data-delay="2">
+        <li class="hstep" data-reveal="scale" data-delay="2">
           <span class="hstep__num">03</span>
           <span class="hstep__title">Transformar</span>
           <span class="hstep__text">Entregar um espaço pronto para receber a vida e continuar fazendo sentido com o tempo.</span>
         </li>
       </ol>
 
-      <p class="highlight__closing" data-reveal>
+      <p class="highlight__closing" data-reveal="scale">
         Uma construção bem resolvida é aquela em que cada decisão faz sentido para quem vai viver o espaço.
       </p>
     </div>
@@ -353,7 +353,7 @@
           </p>
         </div>
 
-        <p class="counter" aria-hidden="true" data-reveal data-delay="2">
+        <p class="counter" aria-hidden="true" data-reveal="scale" data-delay="2">
           <span class="counter__label">Processo</span>
           <span class="counter__value">
             <span class="counter__current" id="stepsCurrent">01</span>
@@ -412,7 +412,7 @@
       </header>
 
       <div class="gallery">
-        <figure class="gallery__item" data-reveal>
+        <figure class="gallery__item" data-reveal="scale">
           <div class="ph ph--4x3" role="img" aria-label="Espaço reservado para imagem de referência 01">
             <span class="ph__grid" aria-hidden="true"></span>
             <span class="ph__cross" aria-hidden="true"></span>
@@ -420,7 +420,7 @@
           </div>
         </figure>
 
-        <figure class="gallery__item" data-reveal data-delay="1">
+        <figure class="gallery__item" data-reveal="scale" data-delay="1">
           <div class="ph ph--4x3" role="img" aria-label="Espaço reservado para imagem de referência 02">
             <span class="ph__grid" aria-hidden="true"></span>
             <span class="ph__cross" aria-hidden="true"></span>
@@ -428,7 +428,7 @@
           </div>
         </figure>
 
-        <figure class="gallery__item" data-reveal data-delay="2">
+        <figure class="gallery__item" data-reveal="scale" data-delay="2">
           <div class="ph ph--4x3" role="img" aria-label="Espaço reservado para imagem de referência 03">
             <span class="ph__grid" aria-hidden="true"></span>
             <span class="ph__cross" aria-hidden="true"></span>
@@ -436,7 +436,7 @@
           </div>
         </figure>
 
-        <figure class="gallery__item" data-reveal>
+        <figure class="gallery__item" data-reveal="scale">
           <div class="ph ph--4x3" role="img" aria-label="Espaço reservado para imagem de referência 04">
             <span class="ph__grid" aria-hidden="true"></span>
             <span class="ph__cross" aria-hidden="true"></span>
@@ -444,7 +444,7 @@
           </div>
         </figure>
 
-        <figure class="gallery__item" data-reveal data-delay="1">
+        <figure class="gallery__item" data-reveal="scale" data-delay="1">
           <div class="ph ph--4x3" role="img" aria-label="Espaço reservado para imagem de referência 05">
             <span class="ph__grid" aria-hidden="true"></span>
             <span class="ph__cross" aria-hidden="true"></span>
@@ -452,7 +452,7 @@
           </div>
         </figure>
 
-        <figure class="gallery__item" data-reveal data-delay="2">
+        <figure class="gallery__item" data-reveal="scale" data-delay="2">
           <div class="ph ph--4x3" role="img" aria-label="Espaço reservado para imagem de referência 06">
             <span class="ph__grid" aria-hidden="true"></span>
             <span class="ph__cross" aria-hidden="true"></span>
@@ -484,7 +484,7 @@
         </dl>
       </div>
 
-      <div class="local__map" data-reveal data-delay="1">
+      <div class="local__map" data-reveal="right" data-delay="1">
         <div class="map">
           <iframe
             class="map__frame"
@@ -516,7 +516,7 @@
         </div>
       </div>
 
-      <dl class="cta__data" data-reveal data-delay="1">
+      <dl class="cta__data" data-reveal="right" data-delay="1">
         <div>
           <dt>Contato</dt>
           <dd><a class="link-underline" href="tel:+5516991677225">(16) 99167-7225</a></dd>
