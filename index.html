@@ -33,7 +33,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Sora:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Inter:wght@300;400;500&display=swap">
 <link rel="stylesheet" href="assets/css/styles.css">
 
 <script type="application/ld+json">
@@ -117,65 +117,73 @@
 
 <main id="conteudo">
 
-  <!-- ===================== 01 · HERO ===================== -->
+  <!-- ===================== HERO ===================== -->
   <section class="hero" id="inicio">
-    <div class="shell hero__grid">
+    <span class="hero__axis" aria-hidden="true"></span>
 
+    <div class="shell hero__grid">
       <div class="hero__body">
-        <p class="eyebrow" data-reveal>
+
+        <p class="eyebrow" data-hero="1">
           <span class="eyebrow__dash" aria-hidden="true"></span>
           Construção Civil &nbsp;|&nbsp; Ibitinga &ndash; SP
         </p>
 
-        <h1 class="hero__title" data-reveal data-delay="1">
-          Qualidade e conforto para construir o seu espaço.
+        <h1 class="hero__title" data-hero="2">
+          Qualidade e conforto para construir <em class="hero__accent">o seu espaço.</em>
         </h1>
 
-        <p class="hero__text" data-reveal data-delay="2">
+        <p class="hero__text" data-hero="3">
           A Alcka-Lar atua na construção de casas e apartamentos, unindo qualidade, funcionalidade e conforto.
         </p>
 
-        <div class="hero__actions" data-reveal data-delay="3">
+        <div class="hero__actions" data-hero="4">
           <a class="btn btn--primary btn--lg" href="https://wa.me/5516991677225?text=Ol%C3%A1%21%20Gostaria%20de%20conversar%20sobre%20uma%20constru%C3%A7%C3%A3o%20com%20a%20Alcka-Lar." target="_blank" rel="noopener noreferrer">
             <span>Falar com a Alcka-Lar</span>
+            <svg class="btn__icon" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+              <path d="M4 12 L12 4 M6 4 h6 v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
+            </svg>
           </a>
           <a class="btn btn--outline btn--lg" href="#servicos">
             <span>Conhecer nossos serviços</span>
           </a>
         </div>
 
-        <ul class="hero__meta" data-reveal data-delay="4">
-          <li><span class="hero__meta-num">01</span><span class="hero__meta-label">Casas</span></li>
-          <li><span class="hero__meta-num">02</span><span class="hero__meta-label">Apartamentos</span></li>
-          <li><span class="hero__meta-num">03</span><span class="hero__meta-label">Ibitinga &ndash; SP</span></li>
+        <ul class="hero__meta" data-hero="5">
+          <li>
+            <span class="hero__meta-num">01</span>
+            <span class="hero__meta-label">Casas</span>
+          </li>
+          <li>
+            <span class="hero__meta-num">02</span>
+            <span class="hero__meta-label">Apartamentos</span>
+          </li>
+          <li>
+            <span class="hero__meta-num">03</span>
+            <span class="hero__meta-label">Ibitinga &ndash; SP</span>
+          </li>
         </ul>
       </div>
 
-      <div class="hero__media" data-reveal data-delay="2">
+      <div class="hero__media" data-hero="3">
         <figure class="ph ph--4x5" role="img" aria-label="Espaço reservado para fotografia de construção residencial">
           <span class="ph__grid" aria-hidden="true"></span>
           <span class="ph__cross" aria-hidden="true"></span>
           <figcaption class="ph__tag">Foto &middot; 01</figcaption>
         </figure>
+        <span class="hero__media-rule" aria-hidden="true"></span>
       </div>
-
     </div>
   </section>
 
-  <!-- ===================== 02 · A ALCKA-LAR ===================== -->
+  <!-- ===================== 01 · A ALCKA-LAR ===================== -->
   <section class="section" id="a-alcka-lar">
     <div class="shell">
-      <p class="kicker" data-reveal>01 &mdash; A Alcka-Lar</p>
+      <p class="kicker" data-reveal="mask">01 &mdash; A Alcka-Lar</p>
 
-      <div class="split split--media-first">
-        <figure class="ph ph--4x3" role="img" aria-label="Espaço reservado para fotografia de obra em andamento" data-reveal>
-          <span class="ph__grid" aria-hidden="true"></span>
-          <span class="ph__cross" aria-hidden="true"></span>
-          <figcaption class="ph__tag">Foto &middot; 02</figcaption>
-        </figure>
-
-        <div class="split__body">
-          <h2 class="h2" data-reveal>Construção com propósito.</h2>
+      <div class="about">
+        <div class="about__body">
+          <h2 class="h2" data-reveal="mask">Construção com propósito.</h2>
           <p class="lead" data-reveal data-delay="1">
             A Alcka-Lar atua na construção civil em Ibitinga, com foco na construção de casas e apartamentos e no compromisso com qualidade e conforto.
           </p>
@@ -184,125 +192,110 @@
             <svg viewBox="0 0 24 12" width="24" height="12" aria-hidden="true"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
           </a>
         </div>
+
+        <dl class="about__data">
+          <div class="about__row" data-reveal data-delay="1">
+            <dt>Segmento</dt>
+            <dd>Construção Civil</dd>
+          </div>
+          <div class="about__row" data-reveal data-delay="2">
+            <dt>Especialidade</dt>
+            <dd>Casas e apartamentos</dd>
+          </div>
+          <div class="about__row" data-reveal data-delay="3">
+            <dt>Atuação</dt>
+            <dd>Ibitinga &ndash; SP</dd>
+          </div>
+        </dl>
       </div>
     </div>
   </section>
 
-  <!-- ===================== 03 · SERVIÇOS ===================== -->
+  <!-- ===================== 02 · SERVIÇOS ===================== -->
   <section class="section section--surface" id="servicos">
     <div class="shell">
       <header class="section-head">
-        <p class="kicker" data-reveal>02 &mdash; Serviços</p>
-        <h2 class="h2 h2--wide" data-reveal>O que construímos</h2>
+        <p class="kicker" data-reveal="mask">02 &mdash; Serviços</p>
+        <h2 class="h2 h2--wide" data-reveal="mask">O que construímos</h2>
       </header>
 
-      <article class="service" data-reveal>
-        <div class="service__media">
-          <figure class="ph ph--16x10" role="img" aria-label="Espaço reservado para fotografia de construção de casas">
-            <span class="ph__grid" aria-hidden="true"></span>
-            <span class="ph__cross" aria-hidden="true"></span>
-            <figcaption class="ph__tag">Foto &middot; 03</figcaption>
-          </figure>
-        </div>
-        <div class="service__body">
-          <span class="service__num">01</span>
+      <div class="services">
+        <article class="service" data-reveal>
+          <span class="service__num" aria-hidden="true">01</span>
           <h3 class="service__title">Casas</h3>
           <p class="text">
             Construção de espaços residenciais pensados para unir funcionalidade, qualidade e conforto.
           </p>
-        </div>
-      </article>
+        </article>
 
-      <article class="service service--flip" data-reveal>
-        <div class="service__media">
-          <figure class="ph ph--4x3" role="img" aria-label="Espaço reservado para fotografia de construção de apartamentos">
-            <span class="ph__grid" aria-hidden="true"></span>
-            <span class="ph__cross" aria-hidden="true"></span>
-            <figcaption class="ph__tag">Foto &middot; 04</figcaption>
-          </figure>
-        </div>
-        <div class="service__body">
-          <span class="service__num">02</span>
+        <article class="service service--offset" data-reveal data-delay="2">
+          <span class="service__num" aria-hidden="true">02</span>
           <h3 class="service__title">Apartamentos</h3>
           <p class="text">
             Espaços residenciais desenvolvidos para atender às necessidades do dia a dia.
           </p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- ===================== 04 · QUALIDADE E CONFORTO ===================== -->
-  <section class="section" id="qualidade">
-    <div class="shell">
-      <header class="section-head">
-        <p class="kicker" data-reveal>03 &mdash; Qualidade e conforto</p>
-        <h2 class="h2 h2--wide" data-reveal>Dois princípios. Um propósito.</h2>
-      </header>
-
-      <div class="principles">
-        <article class="principle" data-reveal>
-          <figure class="ph ph--3x4" role="img" aria-label="Espaço reservado para fotografia de acabamento e execução">
-            <span class="ph__grid" aria-hidden="true"></span>
-            <span class="ph__cross" aria-hidden="true"></span>
-            <figcaption class="ph__tag">Foto &middot; 05</figcaption>
-          </figure>
-          <div class="principle__body">
-            <span class="principle__mark" aria-hidden="true">I</span>
-            <h3 class="principle__title">Qualidade</h3>
-            <span class="rule" aria-hidden="true"></span>
-            <p class="text">
-              Atenção aos detalhes e à execução em cada etapa da construção.
-            </p>
-          </div>
-        </article>
-
-        <article class="principle principle--offset" data-reveal data-delay="1">
-          <figure class="ph ph--4x3" role="img" aria-label="Espaço reservado para fotografia de interior residencial">
-            <span class="ph__grid" aria-hidden="true"></span>
-            <span class="ph__cross" aria-hidden="true"></span>
-            <figcaption class="ph__tag">Foto &middot; 06</figcaption>
-          </figure>
-          <div class="principle__body">
-            <span class="principle__mark" aria-hidden="true">II</span>
-            <h3 class="principle__title">Conforto</h3>
-            <span class="rule" aria-hidden="true"></span>
-            <p class="text">
-              Espaços pensados para proporcionar praticidade e bem-estar.
-            </p>
-          </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ===================== 05 · PROCESSO ===================== -->
+  <!-- ===================== 03 · QUALIDADE E CONFORTO ===================== -->
+  <section class="section" id="qualidade">
+    <div class="shell">
+      <header class="section-head">
+        <p class="kicker" data-reveal="mask">03 &mdash; Qualidade e conforto</p>
+        <h2 class="h2 h2--wide" data-reveal="mask">Dois princípios. Um propósito.</h2>
+      </header>
+
+      <div class="principles">
+        <article class="principle" data-reveal>
+          <span class="principle__mark" aria-hidden="true">I</span>
+          <h3 class="principle__title">Qualidade</h3>
+          <span class="rule" data-reveal="line" aria-hidden="true"></span>
+          <p class="text">
+            Atenção aos detalhes e à execução em cada etapa da construção.
+          </p>
+        </article>
+
+        <article class="principle principle--offset" data-reveal data-delay="2">
+          <span class="principle__mark" aria-hidden="true">II</span>
+          <h3 class="principle__title">Conforto</h3>
+          <span class="rule" data-reveal="line" aria-hidden="true"></span>
+          <p class="text">
+            Espaços pensados para proporcionar praticidade e bem-estar.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 04 · PROCESSO ===================== -->
   <section class="section section--surface" id="processo">
     <div class="shell">
       <header class="section-head">
-        <p class="kicker" data-reveal>04 &mdash; Processo</p>
-        <h2 class="h2 h2--wide" data-reveal>Do projeto ao espaço pronto.</h2>
+        <p class="kicker" data-reveal="mask">04 &mdash; Processo</p>
+        <h2 class="h2 h2--wide" data-reveal="mask">Do projeto ao espaço pronto.</h2>
       </header>
 
-      <div class="steps" id="steps" data-reveal>
+      <div class="steps" id="steps">
         <span class="steps__line" aria-hidden="true"><i id="stepsFill"></i></span>
         <ol class="steps__list">
-          <li class="step" data-step="0">
+          <li class="step" data-step="0" data-reveal>
             <span class="step__dot" aria-hidden="true"></span>
             <span class="step__num">01</span>
             <h3 class="step__title">Planejamento</h3>
           </li>
-          <li class="step" data-step="1">
+          <li class="step" data-step="1" data-reveal data-delay="1">
             <span class="step__dot" aria-hidden="true"></span>
             <span class="step__num">02</span>
             <h3 class="step__title">Construção</h3>
           </li>
-          <li class="step" data-step="2">
+          <li class="step" data-step="2" data-reveal data-delay="2">
             <span class="step__dot" aria-hidden="true"></span>
             <span class="step__num">03</span>
             <h3 class="step__title">Acabamento</h3>
           </li>
-          <li class="step" data-step="3">
+          <li class="step" data-step="3" data-reveal data-delay="3">
             <span class="step__dot" aria-hidden="true"></span>
             <span class="step__num">04</span>
             <h3 class="step__title">Resultado</h3>
@@ -312,13 +305,13 @@
     </div>
   </section>
 
-  <!-- ===================== 06 · REFERÊNCIAS ===================== -->
+  <!-- ===================== 05 · REFERÊNCIAS ===================== -->
   <section class="section" id="referencias">
     <div class="shell">
       <header class="section-head section-head--split">
         <div>
-          <p class="kicker" data-reveal>05 &mdash; Referências</p>
-          <h2 class="h2" data-reveal>Projetos e referências</h2>
+          <p class="kicker" data-reveal="mask">05 &mdash; Referências</p>
+          <h2 class="h2" data-reveal="mask">Projetos e referências</h2>
         </div>
         <div class="section-head__aside" data-reveal data-delay="1">
           <p class="lead lead--sm">
@@ -329,89 +322,131 @@
       </header>
 
       <div class="gallery">
-        <figure class="gallery__item gallery__item--a" data-reveal>
-          <div class="ph ph--3x2" role="img" aria-label="Espaço reservado para imagem de referência 01">
+        <figure class="gallery__item" data-reveal>
+          <div class="ph ph--4x3" role="img" aria-label="Espaço reservado para imagem de referência 01">
             <span class="ph__grid" aria-hidden="true"></span>
             <span class="ph__cross" aria-hidden="true"></span>
+            <figcaption class="ph__tag">01</figcaption>
           </div>
-          <figcaption class="gallery__cap">Referência 01</figcaption>
         </figure>
 
-        <figure class="gallery__item gallery__item--b" data-reveal data-delay="1">
-          <div class="ph ph--1x1" role="img" aria-label="Espaço reservado para imagem de referência 02">
+        <figure class="gallery__item" data-reveal data-delay="1">
+          <div class="ph ph--4x3" role="img" aria-label="Espaço reservado para imagem de referência 02">
             <span class="ph__grid" aria-hidden="true"></span>
             <span class="ph__cross" aria-hidden="true"></span>
+            <figcaption class="ph__tag">02</figcaption>
           </div>
-          <figcaption class="gallery__cap">Referência 02</figcaption>
         </figure>
 
-        <figure class="gallery__item gallery__item--c" data-reveal>
-          <div class="ph ph--1x1" role="img" aria-label="Espaço reservado para imagem de referência 03">
+        <figure class="gallery__item" data-reveal data-delay="2">
+          <div class="ph ph--4x3" role="img" aria-label="Espaço reservado para imagem de referência 03">
             <span class="ph__grid" aria-hidden="true"></span>
             <span class="ph__cross" aria-hidden="true"></span>
+            <figcaption class="ph__tag">03</figcaption>
           </div>
-          <figcaption class="gallery__cap">Referência 03</figcaption>
         </figure>
 
-        <figure class="gallery__item gallery__item--d" data-reveal data-delay="1">
-          <div class="ph ph--3x2" role="img" aria-label="Espaço reservado para imagem de referência 04">
+        <figure class="gallery__item" data-reveal>
+          <div class="ph ph--4x3" role="img" aria-label="Espaço reservado para imagem de referência 04">
             <span class="ph__grid" aria-hidden="true"></span>
             <span class="ph__cross" aria-hidden="true"></span>
+            <figcaption class="ph__tag">04</figcaption>
           </div>
-          <figcaption class="gallery__cap">Referência 04</figcaption>
+        </figure>
+
+        <figure class="gallery__item" data-reveal data-delay="1">
+          <div class="ph ph--4x3" role="img" aria-label="Espaço reservado para imagem de referência 05">
+            <span class="ph__grid" aria-hidden="true"></span>
+            <span class="ph__cross" aria-hidden="true"></span>
+            <figcaption class="ph__tag">05</figcaption>
+          </div>
+        </figure>
+
+        <figure class="gallery__item" data-reveal data-delay="2">
+          <div class="ph ph--4x3" role="img" aria-label="Espaço reservado para imagem de referência 06">
+            <span class="ph__grid" aria-hidden="true"></span>
+            <span class="ph__cross" aria-hidden="true"></span>
+            <figcaption class="ph__tag">06</figcaption>
+          </div>
         </figure>
       </div>
     </div>
   </section>
 
-  <!-- ===================== FAIXA · IBITINGA ===================== -->
-  <section class="band" id="ibitinga">
-    <div class="shell band__inner">
-      <div class="band__body" data-reveal>
-        <h2 class="band__title">Construindo em Ibitinga.</h2>
-        <p class="band__text">
+  <!-- ===================== 06 · LOCALIZAÇÃO ===================== -->
+  <section class="section section--surface" id="ibitinga">
+    <div class="shell local">
+      <div class="local__body">
+        <p class="kicker" data-reveal="mask">06 &mdash; Localização</p>
+        <h2 class="h2" data-reveal="mask">Construindo em Ibitinga.</h2>
+        <p class="lead" data-reveal data-delay="1">
           A Alcka-Lar atua em Ibitinga levando qualidade e conforto para novos espaços residenciais.
         </p>
+        <dl class="local__data" data-reveal data-delay="2">
+          <div>
+            <dt>Localização</dt>
+            <dd>Ibitinga &ndash; SP</dd>
+          </div>
+          <div>
+            <dt>Contato</dt>
+            <dd><a class="link-underline" href="tel:+5516991677225">(16) 99167-7225</a></dd>
+          </div>
+        </dl>
       </div>
-      <svg class="band__graphic" viewBox="0 0 340 96" aria-hidden="true" focusable="false">
-        <path d="M0 96 V62 H28 V44 H52 V70 H84 V30 H112 V56 H140 V38 H170 V66 H200 V24 H232 V52 H262 V40 H292 V68 H318 V50 H340 V96"
-              fill="none" stroke="currentColor" stroke-width="1.2"/>
-        <circle cx="112" cy="30" r="3" fill="#1D5C9E"/>
-        <circle cx="232" cy="24" r="3" fill="#1D5C9E"/>
-      </svg>
+
+      <div class="local__map" data-reveal data-delay="1">
+        <div class="map">
+          <iframe
+            class="map__frame"
+            src="https://maps.google.com/maps?ll=-21.7589,-48.8289&amp;z=13&amp;hl=pt-BR&amp;t=m&amp;output=embed"
+            title="Mapa de Ibitinga, São Paulo"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+        <span class="map__badge">Ibitinga &ndash; SP</span>
+      </div>
     </div>
   </section>
 
-  <!-- ===================== 07 · CTA FINAL ===================== -->
+  <!-- ===================== 07 · CTA ===================== -->
   <section class="cta" id="contato">
     <div class="shell cta__inner">
       <div class="cta__body">
-        <p class="kicker" data-reveal>06 &mdash; Contato</p>
-        <h2 class="h2 h2--xl" data-reveal>Vamos conversar sobre sua construção?</h2>
+        <p class="kicker" data-reveal="mask">07 &mdash; Contato</p>
+        <h2 class="h2 h2--xl" data-reveal="mask">Vamos conversar sobre sua construção?</h2>
         <p class="lead" data-reveal data-delay="1">Conte à Alcka-Lar o que você está planejando.</p>
         <div class="cta__actions" data-reveal data-delay="2">
           <a class="btn btn--primary btn--lg" href="https://wa.me/5516991677225?text=Ol%C3%A1%21%20Gostaria%20de%20conversar%20sobre%20uma%20constru%C3%A7%C3%A3o%20com%20a%20Alcka-Lar." target="_blank" rel="noopener noreferrer">
             <span>Falar pelo WhatsApp</span>
+            <svg class="btn__icon" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+              <path d="M4 12 L12 4 M6 4 h6 v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
+            </svg>
           </a>
-          <a class="cta__phone" href="tel:+5516991677225">(16) 99167-7225</a>
         </div>
       </div>
 
-      <figure class="ph ph--4x3 cta__media" role="img" aria-label="Espaço reservado para fotografia de obra residencial" data-reveal data-delay="1">
-        <span class="ph__grid" aria-hidden="true"></span>
-        <span class="ph__cross" aria-hidden="true"></span>
-        <figcaption class="ph__tag">Foto &middot; 07</figcaption>
-      </figure>
+      <dl class="cta__data" data-reveal data-delay="1">
+        <div>
+          <dt>Contato</dt>
+          <dd><a class="link-underline" href="tel:+5516991677225">(16) 99167-7225</a></dd>
+        </div>
+        <div>
+          <dt>Localização</dt>
+          <dd>Ibitinga &ndash; SP</dd>
+        </div>
+      </dl>
     </div>
+    <span class="cta__rule" aria-hidden="true"></span>
   </section>
 
 </main>
 
-<!-- ===================== 08 · FOOTER ===================== -->
+<!-- ===================== FOOTER ===================== -->
 <footer class="footer">
   <div class="shell">
     <div class="footer__top">
-      <div class="footer__brand">
+      <div class="footer__brand" data-reveal>
         <span class="brand__mark" aria-hidden="true">
           <svg viewBox="0 0 32 32" width="34" height="34" focusable="false">
             <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square">
@@ -427,7 +462,7 @@
         </div>
       </div>
 
-      <div class="footer__info">
+      <div class="footer__info" data-reveal data-delay="1">
         <p class="footer__place">Ibitinga &ndash; SP</p>
         <a class="footer__phone" href="tel:+5516991677225">(16) 99167-7225</a>
         <a class="btn btn--primary btn--sm" href="https://wa.me/5516991677225?text=Ol%C3%A1%21%20Gostaria%20de%20conversar%20sobre%20uma%20constru%C3%A7%C3%A3o%20com%20a%20Alcka-Lar." target="_blank" rel="noopener noreferrer">
@@ -436,13 +471,14 @@
       </div>
     </div>
 
-    <nav class="footer__nav" aria-label="Navegação do rodapé">
+    <nav class="footer__nav" aria-label="Navegação do rodapé" data-reveal data-delay="2">
       <a href="#inicio" data-nav>Início</a>
       <a href="#a-alcka-lar" data-nav>A Alcka-Lar</a>
       <a href="#servicos" data-nav>Serviços</a>
       <a href="#qualidade" data-nav>Qualidade</a>
       <a href="#processo" data-nav>Processo</a>
       <a href="#referencias" data-nav>Referências</a>
+      <a href="#ibitinga" data-nav>Localização</a>
       <a href="#contato" data-nav>Contato</a>
     </nav>
 
@@ -451,6 +487,7 @@
       <span>Construção Civil &middot; Ibitinga &ndash; SP</span>
     </div>
   </div>
+  <span class="footer__rule" aria-hidden="true"></span>
 </footer>
 
 <a class="wa-float" href="https://wa.me/5516991677225?text=Ol%C3%A1%21%20Gostaria%20de%20conversar%20sobre%20uma%20constru%C3%A7%C3%A3o%20com%20a%20Alcka-Lar." target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp com a Alcka-Lar">
