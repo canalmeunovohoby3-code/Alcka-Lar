@@ -1631,6 +1631,10 @@ h1,h2,h3{
     transition-duration:.001ms !important;
     transition-delay:0ms !important;
   }
+
+  /* As entradas continuam acontecendo, so com um recurso: opacidade.
+     Sem deslocamento, sem escala, sem cortina, sem desfoque — o conteudo
+     aparece suavemente conforme a secao entra na tela. */
   .js [data-reveal],
   .js [data-reveal="mask"],
   .js [data-reveal="left"],
@@ -1639,16 +1643,45 @@ h1,h2,h3{
   .js [data-reveal="curtain"],
   .js [data-reveal="slide-in"],
   .js [data-reveal="zoom"],
-  .js [data-reveal="blur"],
-  .js .hero__grid [data-hero],
-  .js .hero__title{
-    opacity:1;transform:none;clip-path:none;filter:none;
+  .js [data-reveal="blur"]{
+    opacity:0;
+    transform:none;
+    clip-path:none;
+    filter:none;
+    transition:opacity .55s ease-out !important;
   }
+  .js [data-reveal].is-in,
+  .js [data-reveal="mask"].is-in,
+  .js [data-reveal="left"].is-in,
+  .js [data-reveal="right"].is-in,
+  .js [data-reveal="scale"].is-in,
+  .js [data-reveal="curtain"].is-in,
+  .js [data-reveal="slide-in"].is-in,
+  .js [data-reveal="zoom"].is-in,
+  .js [data-reveal="blur"].is-in{
+    opacity:1;
+  }
+
+  /* o hero entra em fade, sem deslocamento nem cortina */
+  .js .hero__grid [data-hero],
+  .js .hero__title,
+  .js .hero__media{
+    opacity:0;
+    transform:none;
+    clip-path:none;
+    filter:none;
+    transition:opacity .7s ease-out !important;
+  }
+  .is-ready .hero__grid [data-hero],
+  .is-ready .hero__title,
+  .is-ready .hero__media{opacity:1}
   .js .hero__bg-img{
     opacity:1;
     transform:scale(1.04);
     filter:saturate(.94) contrast(1.03);
+    transition:opacity .9s ease-out !important;
   }
+
   .js .hero__axis,
   .js .rule[data-reveal="line"],
   .js .hero__meta li::before{transform:none}

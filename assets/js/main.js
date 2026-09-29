@@ -72,9 +72,11 @@
     revealsLeft = rest;
   }
 
-  if ('IntersectionObserver' in window && !reduce) {
+  if ('IntersectionObserver' in window) {
     /* threshold 0: elementos com clip-path tem area de interseccao zerada,
-       mas ainda assim entram e precisam receber o estado final */
+       mas ainda assim entram e precisam receber o estado final.
+       O observador roda sempre, tambem com movimento reduzido — nesse caso
+       o CSS deixa a entrada apenas com opacidade. */
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
