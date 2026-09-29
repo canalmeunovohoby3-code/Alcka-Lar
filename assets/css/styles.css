@@ -268,46 +268,82 @@ h1,h2,h3{
 .btn{
   --btn-bg:transparent;
   --btn-fg:var(--ink);
+  --btn-radius:999px;
   position:relative;
-  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
-  padding:1rem 1.75rem;
+  display:inline-flex;align-items:center;justify-content:center;gap:.65rem;
+  padding:1.05rem 1.9rem;
   border:1px solid transparent;
+  border-radius:var(--btn-radius);
   background:var(--btn-bg);
   color:var(--btn-fg);
   font-family:var(--f-display);
   font-size:1.02rem;
   font-weight:400;
-  letter-spacing:.11em;
+  letter-spacing:.1em;
   text-transform:uppercase;
   line-height:1;
   overflow:hidden;
   isolation:isolate;
-  transition:color .35s var(--ease),background-color .35s var(--ease),border-color .35s var(--ease),transform .4s var(--ease-out),box-shadow .4s var(--ease);
+  cursor:pointer;
+  will-change:transform;
+  transition:color .35s var(--ease),background-color .35s var(--ease),border-color .35s var(--ease),transform .45s var(--ease-out),box-shadow .45s var(--ease);
 }
 .btn > *{position:relative;z-index:2}
 .btn__icon{
-  transition:transform .45s var(--ease-out),opacity .35s var(--ease);
+  transition:transform .5s var(--ease-out),opacity .35s var(--ease);
 }
+/* preenchimento que sobe no hover */
 .btn::before{
   content:"";position:absolute;inset:0;z-index:1;
   background:var(--ink);
   transform:scaleY(0);transform-origin:bottom;
-  transition:transform .45s var(--ease-out);
+  transition:transform .5s var(--ease-out);
 }
-.btn:hover{transform:translateY(-3px);box-shadow:0 16px 28px -20px rgba(37,37,37,.65)}
-.btn:hover .btn__icon{transform:translate(3px,-3px)}
-.btn:active{transform:translateY(-1px)}
+/* brilho que atravessa o botao no hover */
+.btn::after{
+  content:"";position:absolute;top:-20%;left:-70%;z-index:3;
+  width:45%;height:140%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.38),transparent);
+  transform:skewX(-18deg);
+  pointer-events:none;
+  transition:left .75s var(--ease-out);
+}
 
-.btn--primary{--btn-bg:var(--accent);--btn-fg:var(--white)}
-.btn--primary:hover{--btn-fg:var(--accent-soft)}
+.btn:hover{transform:translateY(-3px) scale(1.015)}
+.btn:hover::after{left:135%}
+.btn:hover .btn__icon{transform:translate(3px,-3px) scale(1.08)}
+.btn:active{transform:translateY(-1px) scale(.995)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.btn--primary{
+  --btn-bg:var(--accent);
+  --btn-fg:var(--white);
+  box-shadow:0 12px 26px -16px rgba(29,92,158,.95);
+}
+.btn--primary:hover{
+  --btn-fg:var(--accent-soft);
+  box-shadow:0 20px 38px -16px rgba(29,92,158,1);
+}
 .btn--primary:hover::before{transform:scaleY(1)}
 
 .btn--outline{border-color:var(--line);--btn-fg:var(--ink);background:var(--white)}
-.btn--outline:hover{--btn-fg:var(--white);border-color:var(--ink)}
+.btn--outline:hover{
+  --btn-fg:var(--white);
+  border-color:var(--ink);
+  box-shadow:0 18px 34px -22px rgba(37,37,37,.8);
+}
 .btn--outline:hover::before{transform:scaleY(1)}
 
-.btn--sm{padding:.78rem 1.3rem;font-size:.95rem}
-.btn--lg{padding:1.15rem 2.1rem;font-size:1.08rem}
+.btn--sm{padding:.8rem 1.4rem;font-size:.94rem}
+.btn--lg{padding:1.2rem 2.3rem;font-size:1.08rem}
+.btn--xl{padding:1.35rem 2.7rem;font-size:1.14rem}
+
+/* botao de icone redondo */
+.btn--round{
+  width:auto;
+  gap:.6rem;
+  padding:.9rem 1.5rem .9rem 1.25rem;
+}
 
 /* ---------------------------------------------------------------- 05 chrome */
 .progress{
@@ -1382,18 +1418,38 @@ h1,h2,h3{
 .wa-float{
   position:fixed;right:clamp(1rem,3vw,1.75rem);bottom:clamp(1rem,3vw,1.75rem);z-index:90;
   display:grid;place-items:center;
-  width:48px;height:48px;
+  width:52px;height:52px;
   border-radius:50%;
   background:var(--accent);
   color:var(--white);
-  box-shadow:0 14px 28px -18px rgba(29,92,158,.9);
+  box-shadow:0 16px 30px -16px rgba(29,92,158,.95);
   opacity:0;transform:translateY(12px) scale(.92);
   pointer-events:none;
-  transition:opacity .45s var(--ease),transform .5s var(--ease-out),background-color .3s var(--ease),color .3s var(--ease);
+  transition:opacity .45s var(--ease),transform .5s var(--ease-out),background-color .3s var(--ease),color .3s var(--ease),box-shadow .4s var(--ease);
+}
+.wa-float svg{position:relative;z-index:2;transition:transform .45s var(--ease-out)}
+/* anel que se expande, como um sinal */
+.wa-float::before{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  border:1px solid var(--accent);
+  animation:waPulse 2.6s var(--ease-out) infinite;
+  pointer-events:none;
+}
+@keyframes waPulse{
+  0%{transform:scale(1);opacity:.5}
+  70%{transform:scale(1.6);opacity:0}
+  100%{transform:scale(1.6);opacity:0}
 }
 .wa-float.is-visible{opacity:1;transform:none;pointer-events:auto}
-.wa-float:hover{background:var(--ink);color:var(--accent-soft);transform:translateY(-3px)}
+.wa-float:hover{
+  background:var(--ink);
+  color:var(--accent-soft);
+  transform:translateY(-4px) scale(1.06);
+  box-shadow:0 22px 38px -18px rgba(37,37,37,.9);
+}
+.wa-float:hover svg{transform:scale(1.12)}
 .wa-float--invert{background:var(--white);color:var(--accent)}
+.wa-float--invert::before{border-color:var(--white)}
 .wa-float--invert:hover{background:var(--accent-pale);color:var(--accent)}
 
 /* ------------------------------------------------------------- 09 movimento */
