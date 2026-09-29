@@ -590,7 +590,7 @@ h1,h2,h3{
 .ticker__track{
   display:flex;
   width:max-content;
-  animation:tickerScroll 24s linear infinite;
+  animation:tickerScroll 12s linear infinite;
   will-change:transform;
 }
 .ticker__group{display:flex;align-items:center}
@@ -1563,9 +1563,9 @@ h1,h2,h3{
   .step.is-active .step__num,
   .step.is-active .step__title{transform:none}
 
-  /* a faixa de atuacao continua rolando, apenas mais devagar */
+  /* a faixa de atuacao continua rolando, apenas um pouco mais devagar */
   .ticker__track{
-    animation-duration:45s !important;
+    animation-duration:16s !important;
     animation-iteration-count:infinite !important;
   }
   .ticker:hover .ticker__track{animation-play-state:running}
