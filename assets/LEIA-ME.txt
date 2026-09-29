@@ -1,0 +1,44 @@
+ALCKA-LAR — arquivos visuais
+============================
+
+Coloque nesta pasta as fotografias e a logomarca do site.
+
+
+assets/brand/   ·  logomarca
+------------------------------
+  logo-alcka-lar.svg     logomarca em vetor (preferencial)
+  logo-alcka-lar.png     logomarca em PNG com fundo transparente
+  marca-icone.svg        apenas o símbolo, se houver versão separada
+
+  Se a marca tiver versão horizontal e vertical, nomeie:
+  logo-horizontal.svg  /  logo-vertical.svg
+
+
+assets/img/   ·  fotografias
+-----------------------------
+  hero.jpg               foto do topo da página
+
+  galeria/               fotos da seção "Projetos e referências"
+    galeria-01.jpg
+    galeria-02.jpg
+    galeria-03.jpg
+    galeria-04.jpg
+    galeria-05.jpg
+    galeria-06.jpg
+
+
+PROPORÇÕES — para as fotos não serem cortadas de forma estranha
+---------------------------------------------------------------
+  hero.jpg          vertical      4:5      ex. 1200 x 1500 px
+  galeria-0X.jpg    horizontal    4:3      ex. 1200 x 900 px
+
+  O recorte é centralizado (object-fit: cover). Se o assunto principal
+  da foto estiver fora do centro, prefira uma imagem mais aberta.
+
+
+RECOMENDAÇÕES
+-------------
+  · fotos em JPEG, qualidade 75 a 85, no maior tamanho que você tiver
+  · logo em SVG é o ideal; em PNG, use fundo transparente
+  · evite imagens com texto, marca d'água ou logotipo de terceiros
+  · fotos com luz natural funcionam melhor com o visual claro do site
