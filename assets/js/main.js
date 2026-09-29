@@ -53,6 +53,25 @@
 
   /* ------------------------------------------------- 04 · reveal sob scroll */
   var reveals = $$('[data-reveal]');
+  var revealsLeft = [];
+
+  /* leitura primeiro, escrita depois — evita refluxo a cada frame */
+  function revealPassed() {
+    if (!revealsLeft.length) { return; }
+    var limit = window.innerHeight * 0.92;
+    var done = [];
+    var rest = [];
+    for (var i = 0; i < revealsLeft.length; i++) {
+      if (revealsLeft[i].getBoundingClientRect().bottom < limit) {
+        done.push(revealsLeft[i]);
+      } else {
+        rest.push(revealsLeft[i]);
+      }
+    }
+    for (var j = 0; j < done.length; j++) { done[j].classList.add('is-in'); }
+    revealsLeft = rest;
+  }
+
   if ('IntersectionObserver' in window && !reduce) {
     /* threshold 0: elementos com clip-path tem area de interseccao zerada,
        mas ainda assim entram e precisam receber o estado final */
@@ -65,6 +84,7 @@
       });
     }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
     reveals.forEach(function (el) { io.observe(el); });
+    revealsLeft = reveals.slice();
   } else {
     reveals.forEach(function (el) { el.classList.add('is-in'); });
   }
@@ -211,12 +231,23 @@
 
   /* ------------------------------------------------ 09 · atualização por scroll */
   var ticking = false;
+  var heroBg = $('.hero__bg');
+
+  /* parallax muito sutil da fotografia do hero */
+  function parallaxHero() {
+    if (!heroBg || reduce) { return; }
+    var y = window.scrollY;
+    if (y > window.innerHeight * 1.15) { return; }
+    heroBg.style.transform = 'translate3d(0,' + (y * 0.13).toFixed(2) + 'px,0)';
+  }
 
   function onScroll() {
     headerState();
     progressState();
     navState();
     floatState();
+    parallaxHero();
+    revealPassed();
   }
 
   window.addEventListener('scroll', function () {

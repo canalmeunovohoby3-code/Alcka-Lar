@@ -15,3 +15,6 @@ $RECYCLE.BIN/
 # Logs e temporários
 *.log
 *.tmp
+
+# Arquivo-fonte pesado da fotografia do hero (o site usa as versões otimizadas)
+assets/img/hero.png
