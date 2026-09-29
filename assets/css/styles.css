@@ -548,7 +548,7 @@ h1,h2,h3{
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
-    animation:titleSheen 8s var(--ease) infinite;
+    animation:titleSheen 2s linear infinite;
   }
   .hero__accent{
     background-image:linear-gradient(100deg,
@@ -564,13 +564,13 @@ h1,h2,h3{
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
-    animation:titleSheen 8s var(--ease) infinite;
+    animation:titleSheen 2s linear infinite;
   }
 }
 
 @keyframes titleSheen{
   0%{background-position:0% 50%}
-  45%{background-position:100% 50%}
+  55%{background-position:100% 50%}
   100%{background-position:100% 50%}
 }
 .hero__accent{
@@ -1644,11 +1644,11 @@ h1,h2,h3{
   .step.is-active .step__num,
   .step.is-active .step__title{transform:none}
 
-  /* o brilho do titulo continua, so mais lento: e uma mudanca de cor no
+  /* o brilho do titulo continua no mesmo ritmo: e uma mudanca de cor no
      proprio texto, nao um movimento na tela */
   .hero__title,
   .hero__accent{
-    animation-duration:14s !important;
+    animation-duration:2s !important;
     animation-iteration-count:infinite !important;
   }
 
