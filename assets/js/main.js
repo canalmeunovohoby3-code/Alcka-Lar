@@ -121,26 +121,10 @@
     window.requestAnimationFrame(stepsLoop);
   }
 
-  function stopSteps() { stepsRunning = false; }
-
+  /* O ciclo roda sempre, sem depender de observer ou de scroll.
+     O navegador ja pausa o requestAnimationFrame quando a aba fica oculta. */
   if (stepsEl && stepItems.length) {
-    if (reduce) {
-      /* sem movimento: mostra o percurso completo, informação preservada */
-      stepItems.forEach(function (item, i) {
-        item.classList.add('is-done');
-        item.classList.toggle('is-active', i === stepItems.length - 1);
-      });
-      if (stepsFill) { stepsFill.style.setProperty('--fill', '1'); }
-      if (stepsCurrent) { stepsCurrent.textContent = pad(stepItems.length); }
-    } else if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) { startSteps(); } else { stopSteps(); }
-        });
-      }, { threshold: 0.25 }).observe(stepsEl);
-    } else {
-      startSteps();
-    }
+    startSteps();
   }
 
   /* ------------------------------------------------------ 06 · seção corrente */

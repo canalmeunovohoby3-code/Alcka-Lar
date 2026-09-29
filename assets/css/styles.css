@@ -910,8 +910,13 @@ h1,h2,h3{
 .step.is-active .step__dot{
   background:var(--accent);
   border-color:var(--accent);
-  transform:scale(1.12);
-  box-shadow:0 0 0 6px rgba(29,92,158,.13);
+  transform:scale(1.14);
+  animation:stepPulse 1.8s var(--ease-out) infinite;
+}
+@keyframes stepPulse{
+  0%{box-shadow:0 0 0 0 rgba(29,92,158,.34)}
+  70%{box-shadow:0 0 0 13px rgba(29,92,158,0)}
+  100%{box-shadow:0 0 0 0 rgba(29,92,158,0)}
 }
 .step.is-done .step__dot{background:var(--accent);border-color:var(--accent)}
 .step__num{
@@ -932,7 +937,7 @@ h1,h2,h3{
   color:var(--muted-soft);
   transition:color .6s var(--ease),transform .6s var(--ease-out);
 }
-.step.is-done .step__title{color:var(--ink)}
+.step.is-done .step__title{color:var(--muted)}
 .step.is-active .step__title{color:var(--ink);transform:translateX(2px)}
 .step__text{
   margin:0;
@@ -942,7 +947,8 @@ h1,h2,h3{
   max-width:32ch;
   transition:color .6s var(--ease);
 }
-.step.is-done .step__text,.step.is-active .step__text{color:var(--muted)}
+.step.is-done .step__text{color:var(--muted)}
+.step.is-active .step__text{color:var(--ink)}
 
 /* 05 · referências */
 .gallery{
@@ -1420,4 +1426,31 @@ h1,h2,h3{
   .js .service__title{clip-path:none}
   .highlight__lines{animation:none}
   .ph__grid,.ph__cross,.ph{transition:none}
+
+  /* O ciclo do processo continua funcionando: e uma progressao de estado
+     (cor, preenchimento e contador), nao um movimento. Aqui removemos
+     apenas a escala, o pulso e os deslocamentos. */
+  .steps__line i,
+  .step__dot,
+  .step__num,
+  .step__title,
+  .step__text,
+  .counter__current{
+    transition-duration:.55s !important;
+    transition-delay:0s !important;
+  }
+  .step.is-active .step__dot{
+    transform:none;
+    animation:none;
+    /* anel estatico: distingue a etapa atual sem usar movimento */
+    box-shadow:0 0 0 5px rgba(29,92,158,.18);
+  }
+  .step.is-active .step__num,
+  .step.is-active .step__title{transform:none}
 }
+
+/* sem JavaScript: mostra o percurso completo e legivel */
+html:not(.js) .steps__line i{--fill:1}
+html:not(.js) .step__dot{background:var(--accent);border-color:var(--accent)}
+html:not(.js) .step__num{color:var(--accent)}
+html:not(.js) .step__title{color:var(--ink)}
