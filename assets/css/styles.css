@@ -747,33 +747,64 @@ h1,h2,h3{
 .about__notes{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:clamp(1.25rem,3vw,2.5rem);
+  gap:clamp(1rem,2.2vw,1.75rem);
   margin-top:clamp(2.75rem,6vw,4.5rem);
 }
-.about__notes li{
+.note-card{
+  position:relative;
   display:grid;
-  gap:.85rem;
-  align-content:start;
-  padding-top:1.4rem;
-  border-top:1px solid var(--line);
-  transition:border-color .5s var(--ease);
+  grid-template-rows:auto 1fr auto;
+  gap:1.15rem;
+  padding:clamp(1.5rem,2.7vw,2.1rem);
+  background:var(--white);
+  border:1px solid var(--line);
+  overflow:hidden;
+  isolation:isolate;
+  transition:transform .55s var(--ease-out),border-color .5s var(--ease),box-shadow .55s var(--ease);
 }
-.about__notes li:hover{border-color:var(--accent)}
-.about__notes-num{
+.note-card::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(155deg,rgba(29,92,158,.075) 0%,rgba(29,92,158,0) 58%);
+  opacity:0;
+  transition:opacity .55s var(--ease);
+}
+/* a especificidade alta garante que o hover vence o transform do reveal */
+.note-card:hover,
+.js .note-card[data-reveal="scale"].is-in:hover{
+  transform:translateY(-6px);
+  border-color:var(--accent);
+  box-shadow:0 28px 48px -36px rgba(37,37,37,.5);
+}
+.note-card:hover::before{opacity:1}
+.note-card__num{
   font-family:var(--f-display);
-  font-size:1.05rem;
+  font-size:clamp(1.7rem,2.9vw,2.4rem);
   font-weight:400;
-  letter-spacing:.1em;
+  letter-spacing:.04em;
   line-height:1;
   color:var(--accent);
+  transition:transform .55s var(--ease-out);
 }
-.about__notes p{
+.note-card:hover .note-card__num,
+.js .note-card.is-in:hover .note-card__num{transform:translateY(-3px)}
+.note-card__text{
   margin:0;
-  max-width:34ch;
-  color:var(--muted);
-  font-size:.95rem;
+  font-size:.98rem;
   line-height:1.62;
+  color:var(--muted);
+  max-width:34ch;
+  transition:color .5s var(--ease);
 }
+.note-card:hover .note-card__text{color:var(--ink)}
+.note-card__line{
+  display:block;
+  height:1px;
+  background:var(--line);
+  transform:scaleX(.3);
+  transform-origin:left;
+  transition:transform .65s var(--ease-out),background-color .55s var(--ease);
+}
+.note-card:hover .note-card__line{transform:scaleX(1);background:var(--accent)}
 
 /* 03 · serviços */
 .services{
@@ -1328,7 +1359,7 @@ h1,h2,h3{
 .js [data-delay="4"]{--d:4}
 
 /* movimento interno dos componentes, disparado pelo reveal do container */
-.js .about__notes-num,
+.js .note-card__num,
 .js .service__num,
 .js .hstep__num,
 .js .step__num{
@@ -1336,18 +1367,19 @@ h1,h2,h3{
   transform:translateY(9px) scale(.94);
   transition:opacity .7s var(--ease),transform .85s var(--ease-out);
 }
-.js .about__notes li.is-in .about__notes-num,
+.js .note-card.is-in .note-card__num,
 .js .service.is-in .service__num,
 .js .hstep.is-in .hstep__num,
 .js .step.is-in .step__num{
   opacity:1;
   transform:translateY(0) scale(1);
 }
-.js .about__notes li.is-in .about__notes-num{transition-delay:.05s}
+.js .note-card.is-in .note-card__num{transition-delay:.14s}
 .js .service.is-in .service__num{transition-delay:.14s}
 .js .hstep.is-in .hstep__num{transition-delay:.12s}
 .js .step.is-in .step__num{transition-delay:.08s}
 .js .step.is-active .step__num{transform:translateX(2px)}
+.js .note-card.is-in .note-card__line{transition-delay:.3s}
 
 .js .service__title{
   clip-path:inset(0 0 100% 0);
@@ -1534,10 +1566,11 @@ h1,h2,h3{
   .js .rule[data-reveal="line"],
   .js .hero__meta li::before{transform:none}
   .js .kicker::before{width:30px}
-  .js .about__notes-num,
+  .js .note-card__num,
   .js .service__num,
   .js .hstep__num,
   .js .step__num{opacity:1;transform:none}
+  .js .note-card__line{transform:scaleX(1)}
   .js .service__title{clip-path:none}
   .highlight__lines{animation:none}
   .ph__grid,.ph__cross,.ph{transition:none}
