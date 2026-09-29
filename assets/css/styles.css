@@ -1384,6 +1384,41 @@ h1,h2,h3{
 }
 .js [data-reveal="scale"].is-in{opacity:1;transform:none}
 
+/* cortina que sobe: revela o bloco de baixo para cima */
+.js [data-reveal="curtain"]{
+  clip-path:inset(0 0 100% 0);
+  transition:clip-path 1.15s var(--ease-out);
+  transition-delay:calc(var(--d,0) * 110ms);
+}
+.js [data-reveal="curtain"].is-in{clip-path:inset(0 0 0 0)}
+
+/* cortina lateral: revela da esquerda para a direita */
+.js [data-reveal="slide-in"]{
+  clip-path:inset(0 100% 0 0);
+  transition:clip-path 1.15s var(--ease-out);
+  transition-delay:calc(var(--d,0) * 110ms);
+}
+.js [data-reveal="slide-in"].is-in{clip-path:inset(0 0 0 0)}
+
+/* aproximacao: o bloco chega levemente maior e assenta */
+.js [data-reveal="zoom"]{
+  opacity:0;
+  transform:scale(1.07);
+  transition:opacity .95s var(--ease),transform 1.3s var(--ease-out);
+  transition-delay:calc(var(--d,0) * 110ms);
+}
+.js [data-reveal="zoom"].is-in{opacity:1;transform:none}
+
+/* foco: chega desfocado e ganha nitidez */
+.js [data-reveal="blur"]{
+  opacity:0;
+  filter:blur(12px);
+  transform:translateY(16px);
+  transition:opacity .95s var(--ease),filter 1.15s var(--ease),transform 1.15s var(--ease-out);
+  transition-delay:calc(var(--d,0) * 110ms);
+}
+.js [data-reveal="blur"].is-in{opacity:1;filter:blur(0);transform:none}
+
 .js .rule[data-reveal="line"]{
   transform:scaleX(0);transform-origin:left;
   transition:transform .95s var(--ease-out) .12s;
@@ -1601,6 +1636,10 @@ h1,h2,h3{
   .js [data-reveal="left"],
   .js [data-reveal="right"],
   .js [data-reveal="scale"],
+  .js [data-reveal="curtain"],
+  .js [data-reveal="slide-in"],
+  .js [data-reveal="zoom"],
+  .js [data-reveal="blur"],
   .js .hero__grid [data-hero],
   .js .hero__title{
     opacity:1;transform:none;clip-path:none;filter:none;
