@@ -24,7 +24,7 @@
   --accent-tint: #E7EEF7;
   --line:        #D6DCE4;
   --line-soft:   rgba(214,220,228,.6);
-  --muted-soft:  #9EA3AA;
+  --muted-soft:  #61666E;
 
   /* tipografia */
   --f-display: "Bebas Neue", "Arial Narrow", ui-sans-serif, system-ui, sans-serif;
@@ -529,9 +529,57 @@ h1,h2,h3{
   max-width:19ch;
   margin:0;
 }
+
+/* brilho que percorre o titulo continuamente.
+   O texto continua com cor solida em quase toda a extensao do gradiente,
+   entao a leitura nao depende do brilho. */
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .hero__title{
+    background-image:linear-gradient(100deg,
+      var(--ink) 0%,
+      var(--ink) 41%,
+      #7fa8d4 47%,
+      #dbe8f5 50%,
+      #7fa8d4 53%,
+      var(--ink) 59%,
+      var(--ink) 100%);
+    background-size:300% 100%;
+    background-repeat:no-repeat;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:titleSheen 8s var(--ease) infinite;
+  }
+  .hero__accent{
+    background-image:linear-gradient(100deg,
+      var(--accent) 0%,
+      var(--accent) 41%,
+      #6fa3d8 47%,
+      #ffffff 50%,
+      #6fa3d8 53%,
+      var(--accent) 59%,
+      var(--accent) 100%);
+    background-size:300% 100%;
+    background-repeat:no-repeat;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:titleSheen 8s var(--ease) infinite;
+  }
+}
+
+@keyframes titleSheen{
+  0%{background-position:0% 50%}
+  45%{background-position:100% 50%}
+  100%{background-position:100% 50%}
+}
 .hero__accent{
   font-style:normal;
   color:var(--accent);
+}
+/* quando o brilho esta ativo a cor vem do gradiente, nao do color */
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .hero__accent{color:transparent}
 }
 .hero__text{
   margin:1.5rem 0 0;
@@ -1595,6 +1643,10 @@ h1,h2,h3{
   }
   .step.is-active .step__num,
   .step.is-active .step__title{transform:none}
+
+  /* o brilho do titulo para, e o texto fica na cor solida do gradiente */
+  .hero__title,
+  .hero__accent{animation:none}
 
   /* a faixa de atuacao continua rolando, apenas um pouco mais devagar */
   .ticker__track{
