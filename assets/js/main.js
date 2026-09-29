@@ -143,6 +143,16 @@
     wa.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.55);
   }
 
+  /* o botão inverte as cores sobre a seção azul, mantendo o contraste */
+  var waZone = $('.highlight');
+  if (wa && waZone && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        wa.classList.toggle('wa-float--invert', entry.isIntersecting);
+      });
+    }, { rootMargin: '-76% 0px 0px -76%' }).observe(waZone);
+  }
+
   /* ------------------------------------------------ 09 · atualização por scroll */
   var ticking = false;
 
