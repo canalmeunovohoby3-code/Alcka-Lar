@@ -1419,6 +1419,67 @@ h1,h2,h3{
 }
 .js [data-reveal="blur"].is-in{opacity:1;filter:blur(0);transform:none}
 
+/* dobradica: o bloco gira no eixo horizontal, como uma placa que se abre */
+.js [data-reveal="flip"]{
+  opacity:0;
+  transform:perspective(1200px) rotateX(16deg) translateY(26px);
+  transform-origin:center top;
+  transition:opacity .85s var(--ease),transform 1.15s var(--ease-out);
+  transition-delay:calc(var(--d,0) * 110ms);
+}
+.js [data-reveal="flip"].is-in{opacity:1;transform:perspective(1200px) rotateX(0) translateY(0)}
+
+/* alinhamento: o bloco chega inclinado e se endireita */
+.js [data-reveal="skew"]{
+  opacity:0;
+  transform:skewY(3.2deg) translateY(18px);
+  transition:opacity .9s var(--ease),transform 1.1s var(--ease-out);
+  transition-delay:calc(var(--d,0) * 110ms);
+}
+.js [data-reveal="skew"].is-in{opacity:1;transform:none}
+
+/* subida: o bloco vem de baixo com leve ampliacao */
+.js [data-reveal="rise"]{
+  opacity:0;
+  transform:translateY(46px) scale(.96);
+  transition:opacity .9s var(--ease),transform 1.2s var(--ease-out);
+  transition-delay:calc(var(--d,0) * 120ms);
+}
+.js [data-reveal="rise"].is-in{opacity:1;transform:none}
+
+/* desdobrar: o bloco cresce a partir do topo */
+.js [data-reveal="unfold"]{
+  opacity:0;
+  transform:scaleY(.86);
+  transform-origin:top;
+  transition:opacity .8s var(--ease),transform 1.1s var(--ease-out);
+  transition-delay:calc(var(--d,0) * 110ms);
+}
+.js [data-reveal="unfold"].is-in{opacity:1;transform:none}
+
+/* aproximacao de saida: o bloco chega grande e recua */
+.js [data-reveal="zoom-out"]{
+  opacity:0;
+  transform:scale(1.09);
+  transition:opacity 1s var(--ease),transform 1.4s var(--ease-out);
+  transition-delay:calc(var(--d,0) * 110ms);
+}
+.js [data-reveal="zoom-out"].is-in{opacity:1;transform:none}
+
+/* espacamento: o titulo chega aberto e as letras se aproximam */
+.js .h2[data-reveal="tracking"],.js .h2--wide[data-reveal="tracking"]{
+  opacity:0;
+  letter-spacing:.17em;
+  transition:opacity .95s var(--ease),letter-spacing 1.25s var(--ease-out);
+}
+.js .h2[data-reveal="tracking"].is-in,.js .h2--wide[data-reveal="tracking"].is-in{opacity:1;letter-spacing:.008em}
+.js .hero__title[data-reveal="tracking"]{
+  opacity:0;
+  letter-spacing:.14em;
+  transition:opacity .95s var(--ease),letter-spacing 1.25s var(--ease-out);
+}
+.js .hero__title[data-reveal="tracking"].is-in{opacity:1;letter-spacing:.004em}
+
 .js .rule[data-reveal="line"]{
   transform:scaleX(0);transform-origin:left;
   transition:transform .95s var(--ease-out) .12s;
@@ -1632,9 +1693,9 @@ h1,h2,h3{
     transition-delay:0ms !important;
   }
 
-  /* As entradas continuam acontecendo, so com um recurso: opacidade.
-     Sem deslocamento, sem escala, sem cortina, sem desfoque — o conteudo
-     aparece suavemente conforme a secao entra na tela. */
+  /* As entradas continuam acontecendo e cada secao mantem o seu efeito,
+     apenas com amplitude menor: o deslocamento, a escala e o desfoque
+     ficam discretos, e as revelacoes por cortina seguem iguais. */
   .js [data-reveal],
   .js [data-reveal="mask"],
   .js [data-reveal="left"],
@@ -1643,24 +1704,54 @@ h1,h2,h3{
   .js [data-reveal="curtain"],
   .js [data-reveal="slide-in"],
   .js [data-reveal="zoom"],
-  .js [data-reveal="blur"]{
-    opacity:0;
-    transform:none;
-    clip-path:none;
-    filter:none;
-    transition:opacity .55s ease-out !important;
+  .js [data-reveal="zoom-out"],
+  .js [data-reveal="blur"],
+  .js [data-reveal="flip"],
+  .js [data-reveal="skew"],
+  .js [data-reveal="rise"],
+  .js [data-reveal="unfold"],
+  .js .h2[data-reveal="tracking"],.js .h2--wide[data-reveal="tracking"]{
+    transition-duration:.7s !important;
+    transition-delay:0ms !important;
   }
+
+  .js [data-reveal]{transform:translateY(11px)}
+  .js [data-reveal="left"]{transform:translateX(-16px)}
+  .js [data-reveal="right"]{transform:translateX(16px)}
+  .js [data-reveal="scale"]{transform:scale(.972)}
+  .js [data-reveal="zoom"]{transform:scale(1.028)}
+  .js [data-reveal="zoom-out"]{transform:scale(1.04)}
+  .js [data-reveal="blur"]{filter:blur(6px);transform:translateY(9px)}
+  .js [data-reveal="flip"]{transform:perspective(1200px) rotateX(7deg) translateY(12px)}
+  .js [data-reveal="skew"]{transform:skewY(1.5deg) translateY(9px)}
+  .js [data-reveal="rise"]{transform:translateY(18px) scale(.985)}
+  .js [data-reveal="unfold"]{transform:scaleY(.93)}
+  .js .h2[data-reveal="tracking"],.js .h2--wide[data-reveal="tracking"]{letter-spacing:.07em}
+  .js .h2[data-reveal="tracking"].is-in{letter-spacing:.008em}
+
   .js [data-reveal].is-in,
-  .js [data-reveal="mask"].is-in,
   .js [data-reveal="left"].is-in,
   .js [data-reveal="right"].is-in,
   .js [data-reveal="scale"].is-in,
   .js [data-reveal="curtain"].is-in,
   .js [data-reveal="slide-in"].is-in,
   .js [data-reveal="zoom"].is-in,
-  .js [data-reveal="blur"].is-in{
+  .js [data-reveal="zoom-out"].is-in,
+  .js [data-reveal="blur"].is-in,
+  .js [data-reveal="flip"].is-in,
+  .js [data-reveal="skew"].is-in,
+  .js [data-reveal="rise"].is-in,
+  .js [data-reveal="unfold"].is-in{
     opacity:1;
+    transform:none;
+    filter:blur(0);
   }
+  .js [data-reveal="mask"],
+  .js [data-reveal="curtain"],
+  .js [data-reveal="slide-in"]{clip-path:inset(0 0 0 0)}
+  .js [data-reveal="mask"]:not(.is-in){clip-path:inset(0 0 100% 0)}
+  .js [data-reveal="curtain"]:not(.is-in){clip-path:inset(0 0 100% 0)}
+  .js [data-reveal="slide-in"]:not(.is-in){clip-path:inset(0 100% 0 0)}
 
   /* o hero entra em fade, sem deslocamento nem cortina */
   .js .hero__grid [data-hero],
