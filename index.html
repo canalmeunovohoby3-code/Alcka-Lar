@@ -33,7 +33,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Inter:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Inter:wght@300;400;500&display=swap">
 <link rel="stylesheet" href="assets/css/styles.css">
 
 <script type="application/ld+json">
@@ -120,6 +120,7 @@
   <!-- ===================== 01 · HERO ===================== -->
   <section class="hero" id="inicio">
     <span class="hero__axis" aria-hidden="true"></span>
+    <span class="hero__grid-lines" aria-hidden="true"></span>
 
     <div class="shell hero__grid">
       <div class="hero__body">
@@ -281,20 +282,20 @@
       </header>
 
       <div class="pillars">
-        <article class="pillar" data-reveal>
-          <span class="pillar__mark" aria-hidden="true">I</span>
-          <h3 class="pillar__title">Qualidade</h3>
-          <span class="rule" data-reveal="line" aria-hidden="true"></span>
-          <p class="pillar__text">
+        <article class="pillar">
+          <span class="pillar__mark" data-reveal aria-hidden="true">I</span>
+          <h3 class="pillar__title" data-reveal="mask" data-delay="1">Qualidade</h3>
+          <span class="rule" data-reveal="line" data-delay="2" aria-hidden="true"></span>
+          <p class="pillar__text" data-reveal data-delay="2">
             Construir bem significa pensar em cada detalhe para que o resultado seja funcional, confortável e duradouro.
           </p>
         </article>
 
-        <article class="pillar pillar--right" data-reveal data-delay="1">
-          <span class="pillar__mark" aria-hidden="true">II</span>
-          <h3 class="pillar__title">Conforto</h3>
-          <span class="rule" data-reveal="line" aria-hidden="true"></span>
-          <p class="pillar__text">
+        <article class="pillar pillar--right">
+          <span class="pillar__mark" data-reveal aria-hidden="true">II</span>
+          <h3 class="pillar__title" data-reveal="mask" data-delay="2">Conforto</h3>
+          <span class="rule" data-reveal="line" data-delay="3" aria-hidden="true"></span>
+          <p class="pillar__text" data-reveal data-delay="3">
             Espaços pensados para proporcionar praticidade e bem-estar, desde a definição do projeto até o uso diário.
           </p>
         </article>
@@ -304,6 +305,7 @@
 
   <!-- ===================== 05 · SEÇÃO AZUL ===================== -->
   <section class="highlight" id="construir">
+    <span class="highlight__lines" aria-hidden="true"></span>
     <div class="shell">
       <div class="highlight__head">
         <div>
@@ -342,11 +344,22 @@
   <!-- ===================== 06 · PROCESSO ===================== -->
   <section class="section section--surface" id="processo">
     <div class="shell">
-      <header class="section-head">
-        <p class="kicker" data-reveal="mask">05 &mdash; Processo</p>
-        <h2 class="h2 h2--wide" data-reveal="mask">Cada etapa importa.</h2>
-        <p class="lead lead--sm section-head__lead" data-reveal data-delay="1">
-          Uma construção acontece por etapas. Cada uma delas prepara a seguinte e influencia diretamente o resultado final.
+      <header class="section-head section-head--steps">
+        <div class="section-head__main">
+          <p class="kicker" data-reveal="mask">05 &mdash; Processo</p>
+          <h2 class="h2 h2--wide" data-reveal="mask">Cada etapa importa.</h2>
+          <p class="lead lead--sm section-head__lead" data-reveal data-delay="1">
+            Uma construção acontece por etapas. Cada uma delas prepara a seguinte e influencia diretamente o resultado final.
+          </p>
+        </div>
+
+        <p class="counter" aria-hidden="true" data-reveal data-delay="2">
+          <span class="counter__label">Processo</span>
+          <span class="counter__value">
+            <span class="counter__current" id="stepsCurrent">01</span>
+            <span class="counter__slash">/</span>
+            <span class="counter__total">04</span>
+          </span>
         </p>
       </header>
 

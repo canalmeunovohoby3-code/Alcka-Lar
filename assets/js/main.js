@@ -18,6 +18,22 @@
   var year = $('#year');
   if (year) { year.textContent = String(new Date().getFullYear()); }
 
+  /* --------------------------------------------------- 02 · entrada do hero */
+  function startHero() {
+    document.documentElement.classList.add('is-ready');
+  }
+
+  if (document.readyState === 'complete') {
+    window.requestAnimationFrame(startHero);
+  } else {
+    window.addEventListener('load', function () {
+      window.requestAnimationFrame(startHero);
+    }, { once: true });
+    window.setTimeout(function () {
+      if (!document.documentElement.classList.contains('is-ready')) { startHero(); }
+    }, 2400);
+  }
+
   /* --------------------------------------------------------- 02 · header fixo */
   var header = $('#siteHeader');
   function headerState() {
@@ -38,6 +54,8 @@
   /* ------------------------------------------------- 04 · reveal sob scroll */
   var reveals = $$('[data-reveal]');
   if ('IntersectionObserver' in window && !reduce) {
+    /* threshold 0: elementos com clip-path tem area de interseccao zerada,
+       mas ainda assim entram e precisam receber o estado final */
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -45,7 +63,7 @@
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
     reveals.forEach(function (el) { io.observe(el); });
   } else {
     reveals.forEach(function (el) { el.classList.add('is-in'); });
@@ -54,21 +72,75 @@
   /* --------------------------------------------------------- 05 · processo */
   var stepsEl = $('#steps');
   var stepsFill = $('#stepsFill');
+  var stepsCurrent = $('#stepsCurrent');
   var stepItems = $$('.step');
 
-  function stepsState() {
-    if (!stepsEl || !stepItems.length) { return; }
-    var r = stepsEl.getBoundingClientRect();
-    var vh = window.innerHeight;
-    var p = (vh - r.top) / (vh + r.height * 0.8);
-    p = clamp(p, 0, 1);
+  var CYCLE = 10000;      /* duração total do ciclo, em ms */
+  var FILL_PART = 0.82;   /* fração do ciclo usada para preencher a linha */
 
-    if (stepsFill) { stepsFill.style.setProperty('--fill', p.toFixed(4)); }
+  var stepsRunning = false;
+  var cycleStart = 0;
+  var lastStep = -1;
 
-    var active = Math.min(stepItems.length - 1, Math.floor(p * stepItems.length));
-    stepItems.forEach(function (item, i) {
-      item.classList.toggle('is-active', i <= active);
-    });
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  function paintSteps(pos) {
+    /* pos vai de 0 a 1 e volta: preenche, rebobina e recomeça sem corte */
+    var seed;
+    if (pos < FILL_PART) {
+      seed = pos / FILL_PART;
+    } else {
+      seed = 1 - (pos - FILL_PART) / (1 - FILL_PART);
+    }
+
+    if (stepsFill) { stepsFill.style.setProperty('--fill', seed.toFixed(4)); }
+
+    var active = Math.min(stepItems.length - 1, Math.floor(seed * stepItems.length));
+    if (active !== lastStep) {
+      stepItems.forEach(function (item, i) {
+        item.classList.toggle('is-done', i < active);
+        item.classList.toggle('is-active', i === active);
+      });
+      if (stepsCurrent) { stepsCurrent.textContent = pad(active + 1); }
+      lastStep = active;
+    }
+  }
+
+  function stepsLoop(now) {
+    if (!stepsRunning) { return; }
+    if (!cycleStart) { cycleStart = now; }
+    paintSteps(((now - cycleStart) % CYCLE) / CYCLE);
+    window.requestAnimationFrame(stepsLoop);
+  }
+
+  function startSteps() {
+    if (stepsRunning) { return; }
+    stepsRunning = true;
+    cycleStart = 0;
+    lastStep = -1;
+    window.requestAnimationFrame(stepsLoop);
+  }
+
+  function stopSteps() { stepsRunning = false; }
+
+  if (stepsEl && stepItems.length) {
+    if (reduce) {
+      /* sem movimento: mostra o percurso completo, informação preservada */
+      stepItems.forEach(function (item, i) {
+        item.classList.add('is-done');
+        item.classList.toggle('is-active', i === stepItems.length - 1);
+      });
+      if (stepsFill) { stepsFill.style.setProperty('--fill', '1'); }
+      if (stepsCurrent) { stepsCurrent.textContent = pad(stepItems.length); }
+    } else if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { startSteps(); } else { stopSteps(); }
+        });
+      }, { threshold: 0.25 }).observe(stepsEl);
+    } else {
+      startSteps();
+    }
   }
 
   /* ------------------------------------------------------ 06 · seção corrente */
@@ -159,7 +231,6 @@
   function onScroll() {
     headerState();
     progressState();
-    stepsState();
     navState();
     floatState();
   }
