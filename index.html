@@ -498,44 +498,62 @@
     </div>
   </section>
 
-  <!-- ===================== 08 · LOCALIZAÇÃO ===================== -->
+  <!-- ===================== 07 · LOCALIZAÇÃO ===================== -->
   <section class="section section--surface" id="ibitinga">
-    <div class="shell local">
-      <div class="local__body">
-        <p class="kicker" data-reveal="mask">07 &mdash; Localização</p>
-        <h2 class="h2" data-reveal="blur">Construindo em Ibitinga.</h2>
-        <p class="lead" data-reveal data-delay="1">
+    <div class="shell">
+      <header class="section-head section-head--split">
+        <div>
+          <p class="kicker" data-reveal="mask">07 &mdash; Localização</p>
+          <h2 class="h2" data-reveal="blur">Construindo em Ibitinga.</h2>
+        </div>
+        <p class="lead lead--sm" data-reveal data-delay="1">
           A Alcka-Lar atua em Ibitinga levando qualidade e conforto para novos espaços residenciais.
         </p>
-        <dl class="local__data" data-reveal data-delay="2">
-          <div>
-            <dt>Localização</dt>
-            <dd>Ibitinga &ndash; SP</dd>
-          </div>
-          <div>
-            <dt>Contato</dt>
-            <dd><a class="link-underline" href="tel:+5516991677225">(16) 99167-7225</a></dd>
-          </div>
-        </dl>
-      </div>
+      </header>
 
-      <div class="local__map" data-reveal="zoom-out" data-delay="1">
-        <div class="map">
-          <iframe
-            class="map__frame"
-            src="https://maps.google.com/maps?ll=-21.7589,-48.8289&amp;z=13&amp;hl=pt-BR&amp;t=m&amp;output=embed"
-            title="Mapa de Ibitinga, São Paulo"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen></iframe>
+      <div class="local">
+        <div class="local__map" data-reveal="zoom-out">
+          <div class="map">
+            <iframe
+              class="map__frame"
+              src="https://maps.google.com/maps?ll=-21.7589,-48.8289&amp;z=13&amp;hl=pt-BR&amp;t=m&amp;output=embed"
+              title="Mapa de Ibitinga, São Paulo"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+          <div class="map__foot">
+            <span class="map__badge">Ibitinga &ndash; SP</span>
+            <span class="map__note">Atendimento local</span>
+          </div>
         </div>
-        <span class="map__badge">Ibitinga &ndash; SP</span>
+
+        <aside class="local__side" data-reveal data-delay="1">
+          <dl class="local__data">
+            <div>
+              <dt>Localização</dt>
+              <dd>Ibitinga &ndash; SP</dd>
+            </div>
+            <div>
+              <dt>Contato</dt>
+              <dd><a class="link-underline" href="tel:+5516991677225">(16) 99167-7225</a></dd>
+            </div>
+          </dl>
+
+          <a class="btn btn--primary" href="https://wa.me/5516991677225?text=Ol%C3%A1%21%20Gostaria%20de%20conversar%20sobre%20uma%20constru%C3%A7%C3%A3o%20com%20a%20Alcka-Lar." target="_blank" rel="noopener noreferrer">
+            <span>Falar no WhatsApp</span>
+            <svg class="btn__icon" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+              <path d="M4 12 L12 4 M6 4 h6 v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
+            </svg>
+          </a>
+        </aside>
       </div>
     </div>
   </section>
 
-  <!-- ===================== 09 · CTA ===================== -->
+  <!-- ===================== 08 · CTA ===================== -->
   <section class="cta" id="contato">
+    <span class="cta__lines" aria-hidden="true"></span>
     <div class="shell cta__inner">
       <div class="cta__body">
         <p class="kicker" data-reveal="mask">08 &mdash; Contato</p>
@@ -560,6 +578,10 @@
           <dt>Localização</dt>
           <dd>Ibitinga &ndash; SP</dd>
         </div>
+        <div>
+          <dt>WhatsApp</dt>
+          <dd><a class="link-underline" href="https://wa.me/5516991677225?text=Ol%C3%A1%21%20Gostaria%20de%20conversar%20sobre%20uma%20constru%C3%A7%C3%A3o%20com%20a%20Alcka-Lar." target="_blank" rel="noopener noreferrer">Iniciar conversa</a></dd>
+        </div>
       </dl>
     </div>
     <span class="cta__rule" aria-hidden="true"></span>
@@ -567,13 +589,15 @@
 
 </main>
 
-<!-- ===================== 10 · FOOTER ===================== -->
+<!-- ===================== 09 · FOOTER ===================== -->
 <footer class="footer">
+  <span class="footer__rule" aria-hidden="true"></span>
   <div class="shell">
-    <div class="footer__top">
+    <div class="footer__grid">
+
       <div class="footer__brand" data-reveal>
         <span class="brand__mark" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="34" height="34" focusable="false">
+          <svg viewBox="0 0 32 32" width="40" height="40" focusable="false">
             <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square">
               <path d="M8 25 L16 6"/>
               <path d="M16 6 L24 25"/>
@@ -581,39 +605,44 @@
             <path d="M11.4 17.6 H20.6" fill="none" stroke="#1D5C9E" stroke-width="1.6" stroke-linecap="square"/>
           </svg>
         </span>
-        <div>
-          <p class="footer__name">ALCKA<em>-</em>LAR</p>
-          <p class="footer__sub">Construção Civil</p>
-        </div>
+        <p class="footer__name">ALCKA<em>-</em>LAR</p>
+        <p class="footer__sub">Construção Civil</p>
+        <p class="footer__about">Construção de casas e apartamentos em Ibitinga &ndash; SP, com foco em qualidade e conforto.</p>
       </div>
 
-      <div class="footer__info" data-reveal data-delay="1">
-        <p class="footer__place">Ibitinga &ndash; SP</p>
+      <nav class="footer__col" aria-label="Navegação do rodapé" data-reveal data-delay="1">
+        <p class="footer__label">Navegação</p>
+        <ul class="footer__links">
+          <li><a href="#inicio" data-nav>Início</a></li>
+          <li><a href="#a-alcka-lar" data-nav>A Alcka-Lar</a></li>
+          <li><a href="#servicos" data-nav>Serviços</a></li>
+          <li><a href="#qualidade" data-nav>Qualidade</a></li>
+          <li><a href="#construir" data-nav>Construir</a></li>
+          <li><a href="#processo" data-nav>Processo</a></li>
+          <li><a href="#referencias" data-nav>Referências</a></li>
+          <li><a href="#ibitinga" data-nav>Localização</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__col" data-reveal data-delay="2">
+        <p class="footer__label">Contato</p>
         <a class="footer__phone" href="tel:+5516991677225">(16) 99167-7225</a>
+        <p class="footer__place">Ibitinga &ndash; SP</p>
         <a class="btn btn--primary btn--sm" href="https://wa.me/5516991677225?text=Ol%C3%A1%21%20Gostaria%20de%20conversar%20sobre%20uma%20constru%C3%A7%C3%A3o%20com%20a%20Alcka-Lar." target="_blank" rel="noopener noreferrer">
           <span>WhatsApp</span>
         </a>
       </div>
-    </div>
 
-    <nav class="footer__nav" aria-label="Navegação do rodapé" data-reveal data-delay="2">
-      <a href="#inicio" data-nav>Início</a>
-      <a href="#a-alcka-lar" data-nav>A Alcka-Lar</a>
-      <a href="#servicos" data-nav>Serviços</a>
-      <a href="#qualidade" data-nav>Qualidade</a>
-      <a href="#construir" data-nav>Construir</a>
-      <a href="#processo" data-nav>Processo</a>
-      <a href="#referencias" data-nav>Referências</a>
-      <a href="#ibitinga" data-nav>Localização</a>
-      <a href="#contato" data-nav>Contato</a>
-    </nav>
+    </div>
 
     <div class="footer__bottom">
       <span>&copy; <span id="year">2026</span> Alcka-Lar. Todos os direitos reservados.</span>
-      <span>Construção Civil &middot; Ibitinga &ndash; SP</span>
+      <a class="footer__totop" href="#inicio" aria-label="Voltar ao início">
+        <span>Voltar ao início</span>
+        <svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M6 10V2M2 6l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
+      </a>
     </div>
   </div>
-  <span class="footer__rule" aria-hidden="true"></span>
 </footer>
 
 <a class="wa-float" href="https://wa.me/5516991677225?text=Ol%C3%A1%21%20Gostaria%20de%20conversar%20sobre%20uma%20constru%C3%A7%C3%A3o%20com%20a%20Alcka-Lar." target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp com a Alcka-Lar">
